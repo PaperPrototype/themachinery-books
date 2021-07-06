@@ -1,0 +1,3 @@
+# What is The Machinery?
+
+*The Machinery* is a framework for building different kinds of 3D software: editors, tools, pipeline components, games, visualizations, simulations, toys, experiments, etc. You can think of it as a *game engine*, but it’s intended use stretches beyond games, covering a wide range of applications. What makes *The Machinery* special is that it is *lightweight* and completely *plugin-based.* That means that you are not limited to a single editor and runtime. Rather, you can mix and match components as you need (or write your own) to create your own unique experience. *The Machinery* can also be stripped down and run embedded, as part of a larger application.
