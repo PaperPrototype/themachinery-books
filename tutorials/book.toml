@@ -1,0 +1,6 @@
+[book]
+authors = ["Simon Renger"]
+language = "en"
+multilingual = false
+src = "src"
+title = "The Machinery Tutorial Book"
