@@ -1,6 +1,6 @@
 # Summary
 
-- [Welcome](./welcome.md)
+- [Welcome](./README.md)
 - [What is The Machinery](./what_is_the_machinery.md)
 - [Licenses](./licenses.md)
 - [Getting Started](./getting_started/README.md)
