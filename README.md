@@ -17,6 +17,10 @@ Alternatively you can download a latest executable from this [link](https://gith
 Open the markdown files with the editor of your choice. If you want to see the changes live run:
 
 ```bash
+# for the introduction
+$ cd the-engine-introduction
+# otherwiese tutorials to open the tutorial book
+$ cd tutorials
 $ mdbook serve
 ```
 
@@ -25,7 +29,11 @@ $ mdbook serve
 To build the book, type:
 
 ```bash
-$ mdbook build
+$ # for the introduction
+$ cd the-engine-introduction
+$ # otherwiese tutorials to open the tutorial book
+$ cd tutorials
+$ mdbook buil
 ```
 
 The output will be in the `book` subdirectory. To check it out, open it in your web browser.
