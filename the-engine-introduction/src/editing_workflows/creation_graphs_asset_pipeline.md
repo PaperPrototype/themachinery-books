@@ -19,6 +19,8 @@ You can import an asset by selecting **File > Import...** in the main menu, pres
 
 During the import step, The Machinery only runs a bare minimum of data processing, just enough so that we can display a visual representation of the asset in the *Preview* tab. Imports run in the background so you can continue to work uninterrupted. When the import finishes the asset will show up in the *Asset Browser*. Note that import of large assets can take a significant amount of time. You can monitor the progress of the import operation in the status bar.
 
+For more in detail explanation about how to import assets checkout the [Asset Import Part](/editing_workflows/import_assets.html).
+
 ### Basic entity rigging, with image and material extraction
 
 If you click on a `dcc_asset` that contains a mesh in the Asset Browser, you will be presented
@@ -42,6 +44,8 @@ the assets into the scene directly, but also want an entity prototype, then you 
 Each image and material in the resources folder is a *Creation Graph*, which is responsible for the
 data-processing of those resources. You can inspect these graphs to see what each one does. They are
 described in more detail below.
+
+<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="788.54" height="443" type="text/html" src="https://www.youtube.com/embed/loaYaeSl-_g?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=ourmachinery.com"></iframe>
 
 ### Creation Graphs for `dcc_asset` import
 
