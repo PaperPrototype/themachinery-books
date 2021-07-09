@@ -1,0 +1,27 @@
+name: build github page
+on:
+  workflow_dispatch:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website
+        uses: actions/checkout@v2
+        with:
+          path: website
+          repository: simonrenger/website
+          token: ${{ secrets.WEBSITE_TOKEN }}
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.64.0'
+          extended: true
+      - name: Build
+        run: cd website  && hugo --minify
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/public
