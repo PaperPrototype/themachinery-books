@@ -1,6 +1,8 @@
 # The Machinery book
 
-This repository contains the source of "The Machinery" book and some other books. This project is a work in progress!
+> **⚠ WARNING: This project is a work in progress and a preview!**
+
+This repository contains the source of "The Machinery" book and some other books. 
 
 ## How to contribute?
 
