@@ -24,7 +24,7 @@ jobs:
       - name: Build introduction
         run: |
           export PATH="${{github.workspace}}/tools/:$PATH"
-          cd the_engine_introduction
+          cd the_machinery_book
           mdbook build
           mv book ../public/the_machinery_book
       - name: Build introduction
