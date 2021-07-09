@@ -1,6 +1,6 @@
 name: build github page
 on:
-  push:
+  workflow_dispatch:
     branches:
       - main
 jobs:
@@ -27,12 +27,6 @@ jobs:
           cd the_engine_introduction
           mdbook build
           mv book ../public/the_machinery_book
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./the_engine_introduction/book
-          destination_dir: the_machinery_book
       - name: Build introduction
         run: |
           export PATH="${{github.workspace}}/tools/:$PATH"
