@@ -22,7 +22,7 @@ Open the markdown files with the editor of your choice. If you want to see the c
 
 ```bash
 # for the introduction
-$ cd the-engine-introduction
+$ cd the_machinery_book
 # otherwiese tutorials to open the tutorial book
 $ cd tutorials
 $ mdbook serve
@@ -34,7 +34,7 @@ To build the book, type:
 
 ```bash
 $ # for the introduction
-$ cd the_engine_introduction
+$ cd the_machinery_book
 $ # otherwiese tutorials to open the tutorial book
 $ cd tutorials
 $ mdbook buil
