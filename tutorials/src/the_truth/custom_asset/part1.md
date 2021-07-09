@@ -164,8 +164,50 @@ When we open the Engine, we can open the Asset Browser and create our asset:
 
 ![](https://paper-attachments.dropbox.com/s_080D43F0A98EB2BE6BBB6D719C7B3B910F38D78674006103833AED0070469AD4_1609883533160_image.png)
 
+What happens is not existing! But we are getting there! Check out the [next part](#) for more complex and existing actions.
 
-What happens is not existing! But we are getting there! Check out the next part for more complex and existing actions.
+## What is next?
+
+The next part will refactor the current code and show you how to make your code and asset more useful by implementing the action asset.
+
+[Part 2](#)
+
+
+
+## Appendix: Adding an asset via code to the Asset Browser
+
+Sometimes it is necessary to create an asset via code. The Asset Browser plugin provides a solution for this the `tm_asset_browser_add_asset_api`. With this API assets can be created and added to the current project.
+
+To add an asset to the asset browser and therefore create a few steps are needed. First, the correct type needs to be retrieved from the truth via the type hash (in this example, `TM_TT_TYPE_HASH__MY_ASSET`). After that, we should create an object of the correct type. When that is done, we can request the asset browser API if the API not globally accessible. 
+
+> If we already requested the API, we do not need to do this step and can use the already defined instance of the API.
+
+After this, we create a undo scope. Then, we should decide if we should highlight the new asset in the Asset Browser. (`should_select=true`)
+If that's needed, an instance of the current UI is required. Then, the magic can happen.
+
+The following code example will demonstrate how to add my_asset via code to the current project.
+
+```c
+// ... other includes
+#include <foundation/the_truth.h>
+#include <foundation/undo.h>
+
+#include <plugins/editor_views/asset_browser.h>
+
+#include "my_asset.h"
+//... other code
+
+static void add_my_asset_to_project(tm_the_truth_o *tt,struct tm_ui_o *ui,const char*asset_name, tm_tt_id_t target_dir){
+    const tm_tt_type_t my_asset_type_id= tm_the_truth_api->object_type_from_name_hash(tt, TM_TT_TYPE_HASH__MY_ASSET);
+    const tm_tt_id_t asset_id = tm_the_truth_api->create_object_of_type(tt, my_asset_type_id, TM_TT_NO_UNDO_SCOPE);
+tm_asset_browser_add_asset_api *add_asset = tm_global_api_registry->get(TM_ASSET_BROWSER_ADD_ASSET_API_NAME);
+const tm_tt_undo_scope_t undo_scope = tm_the_truth_api->create_undo_scope(tt, TM_LOCALIZE("Add My Asset to Project"));
+bool should_select = true;
+add_asset->add(add_asset->inst, target_dir, asset_id, asset_name, undo_scope,should_select,ui);
+}
+```
+
+
 
 ## Full example of basic asset
 
@@ -176,7 +218,7 @@ What happens is not existing! But we are getting there! Check out the next part 
 #include <foundation/api_types.h>
 //... more code
 #define TM_TT_TYPE__MY_ASSET "tm_my_asset"
-#define TM_TT_TYPE_HASH__MY_ASSET TM_STATIC_HASH("tm_my_asset", 0xc0995d6c144ac64aULL)
+#define TM_TT_TYPE_HASH__MY_ASSET TM_STATIC_HASH("tm_my_asset", 0x1e12ba1f91b99960ULL)
 ```
 
 (Do not forget to run hash.exe when you create a `TM_STATIC_HASH`)
@@ -225,40 +267,4 @@ TM_DLL_EXPORT void tm_load_plugin(struct tm_api_registry_api *reg, bool load)
     tm_add_or_remove_implementation(reg, load, TM_ASSET_BROWSER_CREATE_ASSET_INTERFACE_NAME, &asset_browser_create_my_asset);
 }
 ```
-
-
-## Adding an asset via code to the Asset Browser
-
-Sometimes it is necessary to create an asset via code. The Asset Browser plugin provides a solution for this the `tm_asset_browser_add_asset_api`. With this API assets can be created and added to the current project.
-
-To add an asset to the asset browser and therefore create a few steps are needed. First, the correct type needs to be retrieved from the truth via the type hash (in this example, `TM_TT_TYPE_HASH__MY_ASSET`). After that, we should create an object of the correct type. When that is done, we can request the asset browser API if the API not globally accessible. 
-
-> If we already requested the API, we do not need to do this step and can use the already defined instance of the API.
-
-After this, we create a undo scope. Then, we should decide if we should highlight the new asset in the Asset Browser. (`should_select=true`)
-If that's needed, an instance of the current UI is required. Then, the magic can happen.
-
-The following code example will demonstrate how to add my_asset via code to the current project.
-
-```c
-// ... other includes
-#include <foundation/the_truth.h>
-#include <foundation/undo.h>
-
-#include <plugins/editor_views/asset_browser.h>
-
-#include "my_asset.h"
-//... other code
-
-static void add_my_asset_to_project(tm_the_truth_o *tt,struct tm_ui_o *ui,const char*asset_name, tm_tt_id_t target_dir){
-    const tm_tt_type_t my_asset_type_id= tm_the_truth_api->object_type_from_name_hash(tt, TM_TT_TYPE_HASH__MY_ASSET);
-    const tm_tt_id_t asset_id = tm_the_truth_api->create_object_of_type(tt, my_asset_type_id, TM_TT_NO_UNDO_SCOPE);
-tm_asset_browser_add_asset_api *add_asset = tm_global_api_registry->get(TM_ASSET_BROWSER_ADD_ASSET_API_NAME);
-const tm_tt_undo_scope_t undo_scope = tm_the_truth_api->create_undo_scope(tt, TM_LOCALIZE("Add My Asset to Project"));
-bool should_select = true;
-add_asset->add(add_asset->inst, target_dir, asset_id, asset_name, undo_scope,should_select,ui);
-}
-```
-
-
 
