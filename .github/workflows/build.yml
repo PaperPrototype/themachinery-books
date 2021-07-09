@@ -1,6 +1,6 @@
 name: build github page
 on:
-  workflow_dispatch:
+  push:
     branches:
       - main
 jobs:
@@ -10,18 +10,26 @@ jobs:
       - name: Checkout website
         uses: actions/checkout@v2
         with:
-          path: website
-          repository: simonrenger/website
-          token: ${{ secrets.WEBSITE_TOKEN }}
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.64.0'
-          extended: true
-      - name: Build
-        run: cd website  && hugo --minify
+          path: ./
+      - name: Setup mdbook
+        run: cargo install mdbook
+      - name: Build introduction
+        run: |
+          cd the_engine_introduction
+           mdbook build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/public
+          publish_dir: ./the_engine_introduction/book
+          destination_dir: the_machinery_book
+      - name: Build introduction
+        run: |
+          cd the_engine_introduction
+           mdbook build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./the_engine_introduction/book
+          destination_dir: tutorials
