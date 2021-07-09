@@ -18,11 +18,15 @@ jobs:
           wget https://github.com/rust-lang/mdBook/releases/download/v0.4.10/mdbook-v0.4.10-x86_64-unknown-linux-gnu.tar.gz -O archive.tar.gz
           tar -xf archive.tar.gz
           chmod +x mdbook
+          cd ../
+          mkdir public
+          cp index.html public/index.html
       - name: Build introduction
         run: |
           export PATH="${{github.workspace}}/tools/:$PATH"
           cd the_engine_introduction
-           mdbook build
+          mdbook build
+          mv book ../public/the_machinery_book
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -32,11 +36,11 @@ jobs:
       - name: Build introduction
         run: |
           export PATH="${{github.workspace}}/tools/:$PATH"
-          cd the_engine_introduction
-           mdbook build
+          cd tutorials
+          mdbook build
+          mv book ../public/tutorials
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./the_engine_introduction/book
-          destination_dir: tutorials
+          publish_dir: ./public
