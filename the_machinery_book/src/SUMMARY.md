@@ -10,6 +10,8 @@
     - [First Gameplay Project](./getting_started/first_gameplay_project.md)
     - [Sample Projects](./getting_started/sample-projects.md)
     - [Troubleshooting](./getting_started/troubleshooting.md)
+    - [The Machinery for Unity Dev's](./getting_started/migration_from_unity.md)
+    - [The Machinery for Unreal 4 Dev's](./getting_started/migration_from_unreal.md)
 - [The Editor](./the_editor/README.md)
     - [About Tabs](./the_editor/tabs.md)
     - [Entity Tree Tab](./the_editor/entity_tree_tab.md)
