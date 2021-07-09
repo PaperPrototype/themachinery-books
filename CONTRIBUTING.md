@@ -1,32 +1,25 @@
 # Contributing
 
-When contributing to this repository, please first discuss the change you wish to make via issue. 
+If you want to make a contribution to this repository (other than a small spelling or formatting fix), please first create an *Issue* or a *Discussion* thread, discussing the addition you want to make. Otherwise, there is a chance your submission will be rejected if we decide it does not fit into the structure of this document.
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
-Can be found on Discord.
+We reserve the right to edit and reject contributions.
 
-## Pull Request Process
+## Contributor's License Agreement
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
-   build.
-2. Update the README.md with details of changes to the interface, this includes new environment 
-   variables, exposed ports, useful file locations and container parameters.
-3. Increase the version numbers in any examples files and the README.md to the new version that this
-   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
-   do not have permission to do that, you may request the second reviewer to merge it for you.
+By submitting pull requests to this repository you represent that:
+
+- You are the copyright owner of the text you are submitting.
+- You grant to Our Machinery and to recipients of our software and source code a perpetual, worldwide non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare derivative works of, publicly display, publicly perform, sublicense and distribute your contributions and derivative work.
+- You are legally entitled to grant the above license. If your employer, if any, has rights to intellectual property that you create, you represent that you have received permissions to make this contribution on behalf of your employer.
+
+If you do not agree with any of these representations, do not submit pull requests to the repository.
 
 ## Code of Conduct
 
-### Our Pledge
+* Please be nice and respectful, don't be rude.
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, gender identity and expression, level of experience,
-nationality, personal appearance, race, religion, or sexual identity and
-orientation.
+- Any kind of hate speech leads to being banned.
+- Think before you type, especially when you feel that a discussion is becoming heated.
+- Listen to Our Machinery Team members.
+-  Keep discussions in the correct forums.
 
-### Our Standards
-
-[...]
