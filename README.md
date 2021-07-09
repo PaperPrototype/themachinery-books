@@ -1,6 +1,10 @@
 # The Machinery book
 
-This repository contains the source of "The Machinery" book and some other books. This project is a work in progress!.
+This repository contains the source of "The Machinery" book and some other books. This project is a work in progress!
+
+## How to contribute?
+
+If you want to contribute to this project please read the [CONTRIBUTING.md](CONTRIBUTING.md) first!
 
 ## Requirements
 
@@ -30,7 +34,7 @@ To build the book, type:
 
 ```bash
 $ # for the introduction
-$ cd the-engine-introduction
+$ cd the_engine_introduction
 $ # otherwiese tutorials to open the tutorial book
 $ cd tutorials
 $ mdbook buil
