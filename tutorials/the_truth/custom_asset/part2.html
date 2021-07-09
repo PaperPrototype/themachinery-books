@@ -1,0 +1,519 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Part 2 - The Machinery Tutorial Book</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+                <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded "><a href="../../creation_graph/index.html"><strong aria-hidden="true">2.</strong> Creation Graph</a></li><li class="chapter-item expanded "><a href="../../the_truth/index.html"><strong aria-hidden="true">3.</strong> The Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../the_truth/custom_asset/index.html"><strong aria-hidden="true">3.1.</strong> Creating a custom asset</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../the_truth/custom_asset/part1.html"><strong aria-hidden="true">3.1.1.</strong> Part 1</a></li><li class="chapter-item expanded "><a href="../../the_truth/custom_asset/part2.html" class="active"><strong aria-hidden="true">3.1.2.</strong> Part 2</a></li><li class="chapter-item expanded "><a href="../../the_truth/custom_asset/part3.html"><strong aria-hidden="true">3.1.3.</strong> Part 3</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../ui/index.html"><strong aria-hidden="true">4.</strong> UI</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">The Machinery Tutorial Book</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="create-a-custom-asset-part-2"><a class="header" href="#create-a-custom-asset-part-2">Create a custom asset part 2</a></h1>
+<p>This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this <a href="#">Guide</a>. The goal for this walkthrough is to write a text file asset.</p>
+<p>This part will cover the following topics:</p>
+<ul>
+<li>How to store data in a buffer that is associated with the asset file</li>
+<li>How to add a custom UI to be associated with the asset.</li>
+</ul>
+<p>When you have finished this part in the <a href="#">next one</a>, we will show you how to write your importer.</p>
+<h2 id="extending-the-asset-the-truth-type"><a class="header" href="#extending-the-asset-the-truth-type">Extending the asset The Truth Type</a></h2>
+<p>The asset type we created is nice but it cannot do much. The Machinery can save anything to file that it can store in the Truth. This thought brings us back to the part: <strong>“What kind of asset do we want to create?”.</strong> </p>
+<p>Let us go back to the basic definition of the type <code>my_asset</code>. We defined the type without any properties.</p>
+<p>The current implementation looks as follows:</p>
+<pre><code class="language-c">// -- create truth type
+static void create_truth_types(struct tm_the_truth_o *tt)
+{
+    const tm_tt_type_t type = tm_the_truth_api-&gt;create_object_type(tt, TM_TT_TYPE__MY_ASSET, 0, 0);
+    tm_the_truth_api-&gt;set_aspect(tt, type, TM_TT_ASPECT__FILE_EXTENSION, &quot;my_asset&quot;);
+}
+</code></pre>
+<p>To make this more useful, what we can do is add some properties to the type. We can do this via an array of the type <a href="https://ourmachinery.com//apidoc/foundation/the_truth.h.html#structtm_the_truth_property_definition_t">tm_the_truth_property_definition_t</a>. In this array we can define all the properties we want. </p>
+<h2 id="text-file-asset"><a class="header" href="#text-file-asset">Text file asset</a></h2>
+<p>Now we are changing the <code>my_asset</code> to be able to store text in it. </p>
+<p>First, we need to answer the question: <em>How is a text file defined?</em> </p>
+<p>Well, a text file has three properties: </p>
+<ol>
+<li>It has a file name</li>
+<li>A file path</li>
+<li>data - A bunch of characters.</li>
+</ol>
+<p>Consequently, we are defining the <em>import path</em> property to “reimport” our text asset and the data property to store the imported text.</p>
+<pre><code class="language-c">    static tm_the_truth_property_definition_t my_asset_properties[] = {
+        { &quot;import_path&quot;, TM_THE_TRUTH_PROPERTY_TYPE_STRING },
+        { &quot;data&quot;, TM_THE_TRUTH_PROPERTY_TYPE_BUFFER},
+    };
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> The type <a href="https://ourmachinery.com//apidoc/foundation/the_truth.h.html#structtm_the_truth_property_definition_t"><em>tm_the_truth_property_definition_t</em></a> has a lot more options. For example, is it possible to hide properties from the editor, etc. For more information, read the documentation <a href="https://ourmachinery.com//apidoc/foundation/the_truth.h.html#structtm_the_truth_property_definition_t"><em>here</em></a><em>.</em></p>
+</blockquote>
+<p>After we have thought about this, we need to provide the <code>create_object_type</code> function with the new information:</p>
+<pre><code class="language-c">static void create_truth_types(struct tm_the_truth_o *tt)
+{
+    static tm_the_truth_property_definition_t my_asset_properties[] = {
+        { &quot;import_path&quot;, TM_THE_TRUTH_PROPERTY_TYPE_STRING },
+        { &quot;data&quot;, TM_THE_TRUTH_PROPERTY_TYPE_BUFFER},
+    };
+    const tm_tt_type_t type = tm_the_truth_api-&gt;create_object_type(tt, TM_TT_TYPE__MY_ASSET, my_asset_properties, 2);
+    tm_the_truth_api-&gt;set_aspect(tt, type, TM_TT_ASPECT__FILE_EXTENSION, &quot;my_asset&quot;);
+}
+</code></pre>
+<p>Now we should change the asset name to something more meaningful than <code>my_asset</code>. Lets call it <code>txt</code></p>
+<p>The renaming has as a consequence that we need to change three places:</p>
+<ul>
+<li>Asset Name</li>
+<li>Menu Name</li>
+<li>File extension</li>
+<li>The source file: <code>my_asset.c/h</code> -&gt; <code>txt.c/h</code></li>
+</ul>
+<p>This will change the code as follows:</p>
+<pre><code class="language-c">//.. other code
+static void create_truth_types(struct tm_the_truth_o *tt)
+{
+//... the other code
+    tm_the_truth_api-&gt;set_aspect(tt, type, TM_TT_ASPECT__FILE_EXTENSION, &quot;txt&quot;);
+}
+// .. other code
+static tm_asset_browser_create_asset_i asset_browser_create_my_asset = {
+    .menu_name = TM_LOCALIZE_LATER(&quot;New Text File&quot;),
+    .asset_name = TM_LOCALIZE_LATER(&quot;New Text File&quot;),
+    .create = asset_browser_create,
+};
+</code></pre>
+<p>Let's have a look at how it looks in the editor:</p>
+<p><img src="https://paper-attachments.dropbox.com/s_892FB4725BEE1D4E7D7CCEA6A89558987964DFF4B0524E03B4E0F6FFCF6E0FED_1609926443262_image.png" alt="creating a new asset" /></p>
+<h2 id="load-a-text-file"><a class="header" href="#load-a-text-file">Load a text file</a></h2>
+<p>After creating a new asset, the asset looks as following in the editor:</p>
+<p><img src="https://paper-attachments.dropbox.com/s_892FB4725BEE1D4E7D7CCEA6A89558987964DFF4B0524E03B4E0F6FFCF6E0FED_1609926772154_image.png" alt="" /></p>
+<p>This asset file is still not quite how we want it because we have not loaded a text file yet. Therefore let us load a file next. At first, we will do it by <em>hand</em> via loading a file whenever we are changing the path, and then later on (in the next chapter) we are writing our importer. It will allow us to drag and drop files into the Engine as well or use the <em>Import Menu.</em></p>
+<p><strong>Custom UI</strong>
+To archive our first manual loading, we need to add a custom UI associated with our type. We can do this via the properties aspect <code>TM_TT_ASPECT__PROPERTIES</code>. It means we need to go back to the <code>create_truth_types</code> function and add a new Aspect and a new object associated with this Aspect.</p>
+<p>The Aspect expects a <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_aspect_i"><code>tm_properties_aspect_i</code></a> object. When defining the object, we are focused only on is the custom_ui field. </p>
+<blockquote>
+<p>Note: This struct has many different fields which are not interesting to us now. (If you want more information on them, check out the <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_aspect_i">documentation</a>.</p>
+</blockquote>
+<p>The <code>custom_ui</code> expected s function pointer of the type <code>float (*custom_ui)(struct tm_properties_ui_args_t *args, tm_rect_t item_rect, tm_tt_id_t object, uint32_t indent)</code>.</p>
+<p>Let us quickly go over this:</p>
+<p><em>Function Arguments:</em></p>
+<table><thead><tr><th><strong>Argument</strong></th><th><strong>Data Type</strong></th><th><strong>Description</strong></th></tr></thead><tbody>
+<tr><td>1 (<code>args</code>)</td><td><a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_ui_args_t">tm_properties_ui_args_t</a></td><td>A bundled type of important information. For example this is the way you would retrieve your ui instance as well as your uistyle instance. For more information check the <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_ui_args_t">documentation</a>.</td></tr>
+<tr><td>2 (<code>item_rect</code>)</td><td><a href="https://ourmachinery.com//apidoc/foundation/api_types.h.html#structtm_rect_t">tm_rect_t</a></td><td>The ui rectangular of the current item. This can be manipulated in x,y as well as w and h as long as the correct y value is being returned.</td></tr>
+<tr><td>3 (<code>object</code>)</td><td><a href="https://ourmachinery.com//apidoc/foundation/api_types.h.html#structtm_tt_id_t">tm_tt_id_t</a></td><td>The truth object id of the current object. Can be used to read information of.</td></tr>
+<tr><td>4 (<code>indent</code>)</td><td><code>uint32_t</code></td><td>Used for intention.</td></tr>
+</tbody></table>
+<p><em>Return values</em></p>
+<table><thead><tr><th><strong>Type</strong></th><th><strong>Description</strong></th></tr></thead><tbody>
+<tr><td>float</td><td>This is the being used as the next y value of the following element.</td></tr>
+</tbody></table>
+<p>We need to define a static instance of the <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_aspect_i">tm_properties_aspect_i*</a> and a custom UI function.</p>
+<pre><code class="language-c">//.. other code
+static float properties__custom_ui(struct tm_properties_ui_args_t *args, tm_rect_t item_rect, tm_tt_id_t object, uint32_t indent)
+{
+// -- code
+}
+//.. other code    
+static tm_properties_aspect_i properties_aspect = {
+        .custom_ui = properties__custom_ui,
+    };
+// .. other code
+</code></pre>
+<p>Now the properties aspect needs to know about the existence of our custom UI. It follows the same principle as the properties:</p>
+<pre><code class="language-c">//.. other code
+static void create_truth_types(struct tm_the_truth_o *tt)
+{
+//... the other code
+    tm_the_truth_api-&gt;set_aspect(tt, type, TM_TT_ASPECT__PROPERTIES, &amp;properties_aspect);
+}
+//... the other code
+</code></pre>
+<p>In the editor, the change is imminently visible. The UI is gone because we have chosen to provide our custom UI.</p>
+<p><img src="https://paper-attachments.dropbox.com/s_892FB4725BEE1D4E7D7CCEA6A89558987964DFF4B0524E03B4E0F6FFCF6E0FED_1609928409366_image.png" alt="" /></p>
+<p>It is time to add the imported file property back to the UI panel. The first step is to think about what our property shall represent:
+When we defined it, we described it as type <code>TM_THE_TRUTH_PROPERTY_TYPE_STRING</code>. 
+It is essential to know because the <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#properties.h">properties header file</a> has the <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_view_api">properties view API</a>, which has many built-in functions for default behavior.</p>
+<p>One of the things we can find in there is the <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_view_api.ui_open_path()">ui_open_path</a> which sounds perfect for the import path. The buffer (data) does not need to be displayed yet. Before using any Properties-View API functions, we need to request the API in our load plugin function.</p>
+<pre><code class="language-c">// -- api's
+static struct tm_properties_view_api *tm_properties_view_api;
+//.. other code 
+// -- load plugin
+TM_DLL_EXPORT void tm_load_plugin(struct tm_api_registry_api *reg, bool load)
+{
+//.. other code 
+    tm_properties_view_api = reg-&gt;get(TM_PROPERTIES_VIEW_API_NAME);
+//.. other code 
+} 
+</code></pre>
+<p>Now we can use and implement the path opening function. Let us look at its <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_view_api.ui_open_path()">signature</a> first:</p>
+<p><code>float (*ui_open_path)(struct tm_properties_ui_args_t *args, tm_rect_t item_rect, const char *name, const char *tooltip, tm_tt_id_t object, uint32_t property, const char *extensions, const char *description, bool *picked)</code></p>
+<p><em>Function Arguments:</em></p>
+<table><thead><tr><th><strong>Argument</strong></th><th><strong>Data Type</strong></th><th><strong>Description</strong></th></tr></thead><tbody>
+<tr><td>1 (<code>args</code>)</td><td><a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_ui_args_t">tm_properties_ui_args_t</a></td><td>A bundled type of important information. For example this is the way you would retrieve your UI instance as well as your <code>uistyle</code> instance. For more information check the <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_ui_args_t">documentation</a>.</td></tr>
+<tr><td>2 (<code>item_rect</code>)</td><td><a href="https://ourmachinery.com//apidoc/foundation/api_types.h.html#structtm_rect_t">tm_rect_t</a></td><td>The UI rectangular of the current item. This can be manipulated in x,y as well as w and h as long as the correct y value is being returned.</td></tr>
+<tr><td>3 (<code>n</code>ame)</td><td><code>const char*</code></td><td>This is the name the Properties tab will display as the title in front of the text field.</td></tr>
+<tr><td>4 (<code>t</code>ooltip)</td><td><code>const char*</code></td><td>Extra information if needed. (Optional)</td></tr>
+<tr><td>5 (object)</td><td><a href="https://ourmachinery.com//apidoc/foundation/api_types.h.html#structtm_tt_id_t">tm_tt_id_t</a></td><td>The truth object id of the current object. Can be used to read information of.</td></tr>
+<tr><td>6 (property)</td><td><code>uint32_t</code></td><td>Property index</td></tr>
+<tr><td>7 (<code>extensions</code>)</td><td><code>const char*</code></td><td>List of potential file extension supported by the open dialog</td></tr>
+<tr><td>8 (<code>description</code>)</td><td><code>const char*</code></td><td>List of descriptions for the potential file extensions</td></tr>
+<tr><td>9 (picked)</td><td><code>bool*</code></td><td>Out pointer indicating if a file has been picked or not. (optional)</td></tr>
+</tbody></table>
+<p><em>Return values</em></p>
+<table><thead><tr><th><strong>Type</strong></th><th><strong>Description</strong></th></tr></thead><tbody>
+<tr><td>float</td><td>This is the being used as the next y value of the following element.</td></tr>
+</tbody></table>
+<p>To implement the function all that's needed to remember is what index the property had.</p>
+<pre><code class="language-c">    static tm_the_truth_property_definition_t my_asset_properties[] = {
+        { &quot;import_path&quot;, TM_THE_TRUTH_PROPERTY_TYPE_STRING },
+        { &quot;data&quot;, TM_THE_TRUTH_PROPERTY_TYPE_BUFFER},
+    };
+</code></pre>
+<p>The index is 0 there for we are no ready to implement the function:</p>
+<pre><code class="language-c">//custom ui
+static float properties__custom_ui(struct tm_properties_ui_args_t *args, tm_rect_t item_rect, tm_tt_id_t object, uint32_t indent)
+{
+    // -- code
+    bool picked = false;
+    item_rect.y = tm_properties_view_api-&gt;ui_open_path(args, item_rect, &quot;Imported Path&quot;, &quot;Path that the text file was imported from.&quot;, object, 0, &quot;txt&quot;, &quot;text files&quot;, &amp;picked);
+    if (picked)
+    {
+        // import...
+    }
+    return item_rect.y;
+}
+</code></pre>
+<p>Remembering all of those indices is quite cucumbersome! Therefore, it is better to define an enum in our header file. Define an <code>enum</code> for each property <code>TM_TT_PROP__[NAME_OF_TYPE]__[NAME_OF_PROPERTY]</code></p>
+<pre><code class="language-c">#pragma once
+#include &lt;foundation/api_types.h&gt;
+//... more code
+#define TM_TT_TYPE__MY_ASSET &quot;tm_my_asset&quot;
+#define TM_TT_TYPE_HASH__MY_ASSET TM_STATIC_HASH(&quot;tm_my_asset&quot;, 0x1e12ba1f91b99960ULL)
+
+enum {
+    TM_TT_PROP__MY_ASSET__FILE,
+    TM_TT_PROP__MY_ASSET__DATA,
+}
+</code></pre>
+<p>(<code>txt.h</code>)</p>
+<p>When we compiled this we can test it in the engine, just by adding a new text file click on the Import Path:</p>
+<p><img src="https://paper-attachments.dropbox.com/s_892FB4725BEE1D4E7D7CCEA6A89558987964DFF4B0524E03B4E0F6FFCF6E0FED_1609931496164_image.png" alt="" /></p>
+<p>The next step is using the OS API to load a file from the disc and store it in the buffer. This process works after the same principle as adding the properties view API. </p>
+<p>The OS API (<a href="https://ourmachinery.com//apidoc/foundation/os.h.html#structtm_os_api">tm_os_api</a>) lives in the <code>os.h</code> and has a member called <a href="https://ourmachinery.com//apidoc/foundation/os.h.html#structtm_os_file_io_api">file_io</a>, allowing access to the <code>tm_os_file_io_api</code>. With this API, we can read a file. The following example code shows how reading the file and storing it in a buffer could look like in this case. </p>
+<pre><code class="language-c">//other includes
+#include &lt;foundation/os.h&gt;
+#include &lt;foundation/buffer.h&gt;
+//.. other code
+//custom ui
+static float properties__custom_ui(struct tm_properties_ui_args_t *args, tm_rect_t item_rect, tm_tt_id_t object, uint32_t indent)
+{
+    tm_the_truth_o *tt = args-&gt;tt;
+    bool picked = false;
+    item_rect.y = tm_properties_view_api-&gt;ui_open_path(args, item_rect, TM_LOCALIZE_LATER(&quot;Import Path&quot;), TM_LOCALIZE_LATER(&quot;Path that the text file was imported from.&quot;), object, TM_TT_PROP__MY_ASSET__FILE, &quot;txt&quot;, &quot;text files&quot;, &amp;picked);
+    if (picked)
+    {
+        const char *file = tm_the_truth_api-&gt;get_string(tt, tm_tt_read(tt, object), TM_TT_PROP__MY_ASSET__FILE);
+
+        tm_file_stat_t stat = tm_os_api-&gt;file_system-&gt;stat(file);
+
+        tm_buffers_i *buffers = tm_the_truth_api-&gt;buffers(tt);
+        void *buffer = buffers-&gt;allocate(buffers-&gt;inst, stat.size, false);
+
+        tm_file_o f = tm_os_api-&gt;file_io-&gt;open_input(file);
+        tm_os_api-&gt;file_io-&gt;read(f, buffer, stat.size);
+        tm_os_api-&gt;file_io-&gt;close(f);
+
+        const uint32_t buffer_id = buffers-&gt;add(buffers-&gt;inst, buffer, stat.size, 0);
+        tm_the_truth_object_o *asset_obj = tm_the_truth_api-&gt;write(tt, object);
+        tm_the_truth_api-&gt;set_buffer(tt, asset_obj, TM_TT_PROP__MY_ASSET__DATA, buffer_id); // 1 = data property index.
+        tm_the_truth_api-&gt;commit(tt, asset_obj, TM_TT_NO_UNDO_SCOPE);
+    }
+    return item_rect.y;
+}
+</code></pre>
+<p>First, we need to read out the file path from our The Truth object. After that, we can create the buffer we want to add to our <em>data</em> property (index 1 or <code>TM_TT_PROP___MY_ASSET__DATA</code>). 
+The buffers live in the <code>buffer.h</code>. We create the buffer via The Truth, and it also owns the memory. We are using the <a href="https://ourmachinery.com//apidoc/foundation/os.h.html#structtm_os_file_system_api">file_system API</a> to get the size of the text file. We need to know how big the file is to understand how big the buffer should be. </p>
+<blockquote>
+<p>Note: We should also check if the file exists. It has been left out because we just picked the file. </p>
+</blockquote>
+<p>Then we are reading the file from the disc and store its content in the allocated buffer. The next step is to add the buffer to the Truth buffers via the <a href="https://ourmachinery.com//apidoc/foundation/buffer.h.html#structtm_buffers_i.add()">buffers-&gt;add(buffers-&gt;inst, buffer, stat.size, 0);</a> call. It adds a buffer containing the specified data of size. It returns an ID identifying the new buffer. For more information, read <a href="https://ourmachinery.com//apidoc/foundation/buffer.h.html#structtm_buffers_i.add()">here</a>.</p>
+<p>Now we need to ask the Truth to give us a writeable object. Objects from the Truth are immutable in their default state and can only be made mutable by asking explicitly for a writable object.
+This happens via the <a href="https://ourmachinery.com//apidoc/foundation/the_truth.h.html#structtm_the_truth_api.write()">tm_the_truth_object_o *asset_obj = tm_the_truth_api-&gt;write(tt, object);</a> call.</p>
+<p>With the writeable object, we can set the buffer, and then we can commit the changes to the Truth itself.</p>
+<p>This iteration is the first, but the issue with it is that we cannot import or drag and drop a .txt file into the Engine. We will tackle this issue in the <a href="#">next part</a>.</p>
+<h2 id="what-is-next"><a class="header" href="#what-is-next">What is next?</a></h2>
+<p>The next part will refactor the current code and show you how to make your code and asset more useful by showing you how to program an importer.</p>
+<p><a href="#">Part 3</a></p>
+<h2 id="full-example-source-code"><a class="header" href="#full-example-source-code">Full example source code</a></h2>
+<p><code>txt.h</code></p>
+<pre><code class="language-c">#pragma once
+#include &lt;foundation/api_types.h&gt;
+//... more code
+#define TM_TT_TYPE__MY_ASSET &quot;tm_my_asset&quot;
+#define TM_TT_TYPE_HASH__MY_ASSET TM_STATIC_HASH(&quot;tm_my_asset&quot;, 0x1e12ba1f91b99960ULL)
+
+enum {
+    TM_TT_PROP__MY_ASSET__FILE,
+    TM_TT_PROP__MY_ASSET__DATA,
+};
+</code></pre>
+<p><code>txt.c</code></p>
+<pre><code class="language-c">// -- api's
+static struct tm_the_truth_api *tm_the_truth_api;
+static struct tm_properties_view_api *tm_properties_view_api;
+static struct tm_os_api *tm_os_api;
+// -- inlcudes
+#include &lt;foundation/api_registry.h&gt;
+#include &lt;foundation/the_truth.h&gt;
+#include &lt;foundation/undo.h&gt;
+#include &lt;foundation/the_truth_assets.h&gt;
+#include &lt;foundation/localizer.h&gt;
+#include &lt;foundation/macros.h&gt;
+#include &lt;foundation/os.h&gt;
+#include &lt;foundation/buffer.h&gt;
+
+#include &lt;plugins/editor_views/asset_browser.h&gt;
+#include &lt;plugins/editor_views/properties.h&gt;
+
+#include &quot;txt.h&quot;
+
+//custom ui
+static float properties__custom_ui(struct tm_properties_ui_args_t *args, tm_rect_t item_rect, tm_tt_id_t object, uint32_t indent)
+{
+    tm_the_truth_o *tt = args-&gt;tt;
+    bool picked = false;
+    item_rect.y = tm_properties_view_api-&gt;ui_open_path(args, item_rect, TM_LOCALIZE_LATER(&quot;Import Path&quot;), TM_LOCALIZE_LATER(&quot;Path that the text file was imported from.&quot;), object, TM_TT_PROP__MY_ASSET__FILE, &quot;txt&quot;, &quot;text files&quot;, &amp;picked);
+    if (picked)
+    {
+        const char *file = tm_the_truth_api-&gt;get_string(tt, tm_tt_read(tt, object), TM_TT_PROP__MY_ASSET__FILE);
+        tm_file_stat_t stat = tm_os_api-&gt;file_system-&gt;stat(file);
+        tm_buffers_i *buffers = tm_the_truth_api-&gt;buffers(tt);
+        void *buffer = buffers-&gt;allocate(buffers-&gt;inst, stat.size, false);
+        tm_file_o f = tm_os_api-&gt;file_io-&gt;open_input(file);
+        tm_os_api-&gt;file_io-&gt;read(f, buffer, stat.size);
+        tm_os_api-&gt;file_io-&gt;close(f);
+        const uint32_t buffer_id = buffers-&gt;add(buffers-&gt;inst, buffer, stat.size, 0);
+        tm_the_truth_object_o *asset_obj = tm_the_truth_api-&gt;write(tt, object);
+        tm_the_truth_api-&gt;set_buffer(tt, asset_obj, TM_TT_PROP__MY_ASSET__DATA, buffer_id);
+        tm_the_truth_api-&gt;commit(tt, asset_obj, TM_TT_NO_UNDO_SCOPE);
+    }
+    return item_rect.y;
+}
+// -- create truth type
+static void create_truth_types(struct tm_the_truth_o *tt)
+{
+    static tm_the_truth_property_definition_t my_asset_properties[] = {
+        {&quot;import_path&quot;, TM_THE_TRUTH_PROPERTY_TYPE_STRING},
+        {&quot;data&quot;, TM_THE_TRUTH_PROPERTY_TYPE_BUFFER},
+    };
+    const tm_tt_type_t type = tm_the_truth_api-&gt;create_object_type(tt, TM_TT_TYPE__MY_ASSET, my_asset_properties, TM_ARRAY_COUNT(my_asset_properties));
+    tm_the_truth_api-&gt;set_aspect(tt, type, TM_TT_ASPECT__FILE_EXTENSION, &quot;txt&quot;);
+    static tm_properties_aspect_i properties_aspect = {
+        .custom_ui = properties__custom_ui,
+    };
+    tm_the_truth_api-&gt;set_aspect(tt, type, TM_TT_ASPECT__PROPERTIES, &amp;properties_aspect);
+}
+// -- asset browser regsiter interface
+static tm_tt_id_t asset_browser_create(struct tm_asset_browser_create_asset_o *inst, tm_the_truth_o *tt, tm_tt_undo_scope_t undo_scope)
+{
+    const tm_tt_type_t type = tm_the_truth_api-&gt;object_type_from_name_hash(tt, TM_TT_TYPE_HASH__MY_ASSET);
+    return tm_the_truth_api-&gt;create_object_of_type(tt, type, undo_scope);
+}
+static tm_asset_browser_create_asset_i asset_browser_create_my_asset = {
+    .menu_name = TM_LOCALIZE_LATER(&quot;New Text File&quot;),
+    .asset_name = TM_LOCALIZE_LATER(&quot;New Text File&quot;),
+    .create = asset_browser_create,
+};
+// -- load plugin
+TM_DLL_EXPORT void tm_load_plugin(struct tm_api_registry_api *reg, bool load)
+{
+    tm_the_truth_api = reg-&gt;get(TM_THE_TRUTH_API_NAME);
+    tm_properties_view_api = reg-&gt;get(TM_PROPERTIES_VIEW_API_NAME);
+    tm_os_api = reg-&gt;get(TM_OS_API_NAME);
+    tm_add_or_remove_implementation(reg, load, TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME, create_truth_types);
+    tm_add_or_remove_implementation(reg, load, TM_ASSET_BROWSER_CREATE_ASSET_INTERFACE_NAME, &amp;asset_browser_create_my_asset);
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../the_truth/custom_asset/part1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../the_truth/custom_asset/part3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../the_truth/custom_asset/part1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../the_truth/custom_asset/part3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

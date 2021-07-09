@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>The Truth - The Machinery Tutorial Book</title>
+        <title>Creation Graph - The Machinery Tutorial Book</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded "><a href="../creation_graph/index.html"><strong aria-hidden="true">2.</strong> Creation Graph</a></li><li class="chapter-item expanded "><a href="../the_truth/index.html" class="active"><strong aria-hidden="true">3.</strong> The Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../the_truth/custom_asset/index.html"><strong aria-hidden="true">3.1.</strong> Creating a custom asset</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../the_truth/custom_asset/part1.html"><strong aria-hidden="true">3.1.1.</strong> Part 1</a></li><li class="chapter-item expanded "><a href="../the_truth/custom_asset/part2.html"><strong aria-hidden="true">3.1.2.</strong> Part 2</a></li><li class="chapter-item expanded "><a href="../the_truth/custom_asset/part3.html"><strong aria-hidden="true">3.1.3.</strong> Part 3</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../ui/index.html"><strong aria-hidden="true">4.</strong> UI</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded "><a href="../creation_graph/index.html" class="active"><strong aria-hidden="true">2.</strong> Creation Graph</a></li><li class="chapter-item expanded "><a href="../the_truth/index.html"><strong aria-hidden="true">3.</strong> The Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../the_truth/custom_asset/index.html"><strong aria-hidden="true">3.1.</strong> Creating a custom asset</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../the_truth/custom_asset/part1.html"><strong aria-hidden="true">3.1.1.</strong> Part 1</a></li><li class="chapter-item expanded "><a href="../the_truth/custom_asset/part2.html"><strong aria-hidden="true">3.1.2.</strong> Part 2</a></li><li class="chapter-item expanded "><a href="../the_truth/custom_asset/part3.html"><strong aria-hidden="true">3.1.3.</strong> Part 3</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../ui/index.html"><strong aria-hidden="true">4.</strong> UI</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -143,26 +143,31 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="the-truth"><a class="header" href="#the-truth">The Truth</a></h1>
-<p>The Machinery uses a powerful data model to represent edited assets. This model has built-in support
-for serialization, streaming, copy/paste, drag-and-drop as well as unlimited undo/redo. It supports
-an advanced hierarchical prefab model for making derivative object instances and propagating
-changes. It even has full support for real-time collaboration. Multiple people can work together in
-the same game project, Google Docs-style. Since all of these features are built into the data model
-itself, your custom, game-specific data will get them automatically, without you having to write a
-line of code.</p>
-<p>This section shall introduce you to some more complex topics such as <a href="/the_truth/custom_asset/index.html"><em>How to create your own asset.</em></a></p>
-<p>For more information checkout the <a href="https://ourmachinery.com/apidoc/foundation/the_truth.h.html">documentation</a> and these blog posts: <a href="https://ourmachinery.com/post/the-story-behind-the-truth-designing-a-data-model/">The Story behind The Truth: Designing a Data Model</a>  or this <a href="https://ourmachinery.com/post/multi-threading-the-truth/">one</a>.</p>
+                        <h1 id="creation-graph"><a class="header" href="#creation-graph">Creation Graph</a></h1>
+<p>In The Machinery, we provide full control over how data enters the engine and what data-processing
+steps that get executed, allowing technical artists to better optimize content and setup custom,
+game-specific asset pipelines. </p>
+<p>This is handled through <em>Creation Graphs</em>. A <em>Creation Graph</em> is essentially a generic framework for
+processing arbitrary data on the CPUs and GPUs, exposed through a graph front-end view. While we can
+use <em>Creation Graphs</em> for any type of data processing.</p>
+<p>The following section will guide you from basic use cases to more advanced use cases.</p>
+<p>We have a couple of blog posts which might also be a valid source of information and interesting to
+you.</p>
+<ul>
+<li><a href="https://ourmachinery.com/post/creation-graphs/">Creation Graphs</a></li>
+<li><a href="https://ourmachinery.com/post/more-on-creation-graphs/">More on Creation Graphs</a></li>
+<li><a href="https://ourmachinery.com/post/summer-fun-with-creation-graphs/">Summer Fun with Creation Graphs</a></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="../creation_graph/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="../the_truth/custom_asset/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="../the_truth/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -172,11 +177,11 @@ line of code.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="../creation_graph/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="../the_truth/custom_asset/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="../the_truth/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>

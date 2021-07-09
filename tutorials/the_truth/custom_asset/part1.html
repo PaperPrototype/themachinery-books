@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Part 1 - The Machinery Tutorial Book</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+                <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="chapter-item expanded "><a href="../../creation_graph/index.html"><strong aria-hidden="true">2.</strong> Creation Graph</a></li><li class="chapter-item expanded "><a href="../../the_truth/index.html"><strong aria-hidden="true">3.</strong> The Truth</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../the_truth/custom_asset/index.html"><strong aria-hidden="true">3.1.</strong> Creating a custom asset</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../the_truth/custom_asset/part1.html" class="active"><strong aria-hidden="true">3.1.1.</strong> Part 1</a></li><li class="chapter-item expanded "><a href="../../the_truth/custom_asset/part2.html"><strong aria-hidden="true">3.1.2.</strong> Part 2</a></li><li class="chapter-item expanded "><a href="../../the_truth/custom_asset/part3.html"><strong aria-hidden="true">3.1.3.</strong> Part 3</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../ui/index.html"><strong aria-hidden="true">4.</strong> UI</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">The Machinery Tutorial Book</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="create-a-custom-asset-part-1"><a class="header" href="#create-a-custom-asset-part-1">Create a custom asset part 1</a></h1>
+<p>This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this Guide. The goal for this walkthrough is to write a text file asset.</p>
+<p>This walkthrough will cover the following topics:</p>
+<ul>
+<li>How to create your asset</li>
+<li>How to associate data with your asset</li>
+<li>How to add a custom UI to your asset</li>
+<li>How to create your importer</li>
+</ul>
+<p>This part will cover the following topics:</p>
+<ul>
+<li>What to think of in advance?</li>
+<li>Creating an essential asset The Truth type</li>
+<li>Being able to add the asset to the asset browser
+<ul>
+<li>Via context Menu</li>
+<li>Via code</li>
+</ul>
+</li>
+</ul>
+<p>The next part will explore how to store more complex data in an asset file and how to get this data back into the Engine.</p>
+<h2 id="first-step-what-kind-of-asset-do-we-want-to-create"><a class="header" href="#first-step-what-kind-of-asset-do-we-want-to-create"><strong>First step:</strong> What kind of asset do we want to create?</a></h2>
+<p>Sometimes it is needed to add a custom asset to the Engine to support different asset types which are not supported yet. The first step is that we need to decide what our asset shall represent. In this case, it will be a text file. Those decisions have some influence on the details of the implementation. How ever the steps discussed below are the same in any case.</p>
+<h2 id="creating-an-asset-the-truth-type"><a class="header" href="#creating-an-asset-the-truth-type">Creating an asset The Truth Type</a></h2>
+<p>The Engine needs to know that there shall be a new asset type. That is why we need to register a new Truth type. Those steps are the same for every truth type, be it an asset or not.</p>
+<p>We need to define a globally accessible definition for the name of the type and its hash value. The usual place for this is a header file.</p>
+<p>Example Header file: <code>my_asset.h</code></p>
+<pre><code class="language-c">#pragma once
+#include &quot;entity_api_types.h&quot;
+//... more code
+#define TM_TT_TYPE__MY_ASSET &quot;tm_my_asset&quot;
+#define TM_TT_TYPE_HASH__MY_ASSET TM_STATIC_HASH(&quot;tm_my_asset&quot;, 0xc0995d6c144ac64aULL)
+</code></pre>
+<p>(Do not forget to run hash.exe when you create a <code>TM_STATIC_HASH</code>, mode information here.)</p>
+<p>Now we need to define the layout of our asset type. We should always do this during plugin load. (<code>tm_load_plugin</code>) 
+During this call we need to register a function to the <code>TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME</code> interface. 
+This function is typically called <code>create_truth_types</code>, but its name can be arbitrary.</p>
+<blockquote>
+<p>Note: An interface is an abstract structure that maps a struct (the interface) to a hash value/name. It allows for customization points. In The Machinery, the Engine uses this extensively.</p>
+</blockquote>
+<p>Example <code>tm_load_plugin</code> function for <code>my_asset.c</code></p>
+<pre><code class="language-c">TM_DLL_EXPORT void tm_load_plugin(struct tm_api_registry_api *reg, bool load)
+{
+tm_add_or_remove_implementation(reg, load, TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME, create_truth_types);
+}
+</code></pre>
+<p>After we did this, let us implement the actual function. First, we need to create a Truth type:
+We use the function <code>tm_the_truth_api-&gt;create_object_type(tm_the_truth_o *tt, const char *name, const tm_the_truth_property_definition_t *properties, uint32_t num_properties);</code> . This one will register in the Truth a new type with the name and the properties we give the type. </p>
+<p>At this point, we have a normal The Truth type. But we wanted to create an asset! </p>
+<p><strong>Truth Type vs Asset</strong>
+An asset is just a normal truth type. The structure of an asset in the truth is defined in the <code>foundation/the_truth_assets.h</code>. An asset itself is, therefore, nothing else than a wrapper around our actual asset. It provides a generic interface to provide some standard information.</p>
+<p>The structure of an asset type looks like this:</p>
+<pre><code class="language-c">enum {
+    // Name of the asset.
+    TM_TT_PROP__ASSET__NAME, // string
+    // Directory where the asset resides. For top-level assets, this is `NULL`.
+    TM_TT_PROP__ASSET__DIRECTORY, // reference [[TM_TT_TYPE__ASSET_DIRECTORY]]
+    // Labels applied to this asset.
+    TM_TT_PROP__ASSET__UUID_LABELS, // subobject_set(UINT64_T) storing the UUID of the associated label.
+    // Subobject with the actual data of the asset. The type of this subobject depends on the type
+    // of data storedin this asset.
+    TM_TT_PROP__ASSET__OBJECT, // subobject(*)
+    // Thumbnail image associated with asset
+    TM_TT_PROP__ASSET__THUMBNAIL, // buffer
+};
+</code></pre>
+<p>The truth type of the text file we just created will live as a subobject of the Asset Truth Type in the property field: <code>TM_TT_PROP__ASSET__OBJECT</code>.</p>
+<p>Let us move on and go back and finish the definition of our type. Let us add a file extension to our type. All we need to do is add an aspect of type <code>TM_TT_ASPECT__FILE_EXTENSION</code> to our Truth Type. You can find it in the following header file <code>foundation/the_truth_assets.h</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> The Machinery will automatically prefix your file extension with <strong>tm_</strong></p>
+</blockquote>
+<p>In code, this looks as follows:</p>
+<pre><code class="language-c">static void create_truth_types(struct tm_the_truth_o *tt)
+{
+    const tm_tt_type_t type = tm_the_truth_api-&gt;create_object_type(tt, TM_TT_TYPE__MY_ASSET, 0, 0);
+    tm_the_truth_api-&gt;set_aspect(tt, type, TM_TT_ASPECT__FILE_EXTENSION, &quot;my_asset&quot;);
+}
+</code></pre>
+<p>We create a type of name <code>TM_TT_TYPE__MY_ASSET</code> with no properties and a file extension my_asset (<code>.tm_my_asset</code> in your explorer). </p>
+<h2 id="making-the-asset-browser-able-to-create-it"><a class="header" href="#making-the-asset-browser-able-to-create-it">Making the Asset Browser able to create it</a></h2>
+<p>Now that there is a basic asset type, you might want the asset browser to create it via the <code>New Asset</code> context menu. All you need to do is register the asset to the <code>TM_ASSET_BROWSER_CREATE_ASSET_INTERFACE_NAME</code> interface. This interface requires an implementation of the type <code>tm_asset_browser_create_asset_i</code>:</p>
+<pre><code class="language-c">typedef struct tm_asset_browser_create_asset_i
+{
+    struct tm_asset_browser_create_asset_o *inst;
+    // TM_LOCALIZE_LATER() name of menu option to display for creating the asset (e.g. &quot;New
+    // Entity&quot;).
+    const char *menu_name;
+    // TM_LOCALIZE_LATER() name of the newly created asset (e.g. &quot;New Entity&quot;);
+    const char *asset_name;
+    // Create callback, should return The Truth ID for the newly created asset.
+    tm_tt_id_t (*create)(struct tm_asset_browser_create_asset_o *inst, struct tm_the_truth_o *tt, tm_tt_undo_scope_t undo_scope);
+} tm_asset_browser_create_asset_i;
+</code></pre>
+<p>Source: <code>plugins/editor_views/asset_browser.h</code></p>
+<p>For our basic type, this interface can be defined as follows:</p>
+<pre><code class="language-c">static tm_tt_id_t asset_browser_create(struct tm_asset_browser_create_asset_o *inst, tm_the_truth_o *tt, tm_tt_undo_scope_t undo_scope)
+{
+    const tm_tt_type_t type = tm_the_truth_api-&gt;object_type_from_name_hash(tt, TM_TT_TYPE__MY_ASSET);
+    return tm_the_truth_api-&gt;create_object_of_type(tt, type, undo_scope);
+}
+
+static tm_asset_browser_create_asset_i asset_browser_create_my_asset = {
+    .menu_name = TM_LOCALIZE_LATER(&quot;New My Asset&quot;),
+    .asset_name = TM_LOCALIZE_LATER(&quot;New My Asset&quot;),
+    .create = asset_browser_create,
+};
+</code></pre>
+<p>What is happening?</p>
+<ul>
+<li>In this case, the function <code>asset_browser_create</code> creates the object of our type. Here we could do more complex things if the asset were more complicated. </li>
+<li>The <em>menu name</em> is for the context menu, while the <em>asset name</em> functions as the default asset name. </li>
+</ul>
+<p>Now we register our code to the interface. We do this also in the load plugin function.</p>
+<p>Example <code>tm_load_plugin</code> function for <code>my_asset.c</code></p>
+<pre><code class="language-c">TM_DLL_EXPORT void tm_load_plugin(struct tm_api_registry_api *reg, bool load)
+{
+tm_add_or_remove_implementation(reg, load, TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME, create_truth_types);
+   tm_add_or_remove_implementation(reg, load, TM_ASSET_BROWSER_CREATE_ASSET_INTERFACE_NAME, &amp;asset_browser_create_my_asset);
+}
+</code></pre>
+<p>When we open the Engine, we can open the Asset Browser and create our asset:</p>
+<p><img src="https://paper-attachments.dropbox.com/s_080D43F0A98EB2BE6BBB6D719C7B3B910F38D78674006103833AED0070469AD4_1609883533160_image.png" alt="" /></p>
+<p>What happens is not existing! But we are getting there! Check out the <a href="#">next part</a> for more complex and existing actions.</p>
+<h2 id="what-is-next"><a class="header" href="#what-is-next">What is next?</a></h2>
+<p>The next part will refactor the current code and show you how to make your code and asset more useful by implementing the action asset.</p>
+<p><a href="#">Part 2</a></p>
+<h2 id="appendix-adding-an-asset-via-code-to-the-asset-browser"><a class="header" href="#appendix-adding-an-asset-via-code-to-the-asset-browser">Appendix: Adding an asset via code to the Asset Browser</a></h2>
+<p>Sometimes it is necessary to create an asset via code. The Asset Browser plugin provides a solution for this the <code>tm_asset_browser_add_asset_api</code>. With this API assets can be created and added to the current project.</p>
+<p>To add an asset to the asset browser and therefore create a few steps are needed. First, the correct type needs to be retrieved from the truth via the type hash (in this example, <code>TM_TT_TYPE_HASH__MY_ASSET</code>). After that, we should create an object of the correct type. When that is done, we can request the asset browser API if the API not globally accessible. </p>
+<blockquote>
+<p>If we already requested the API, we do not need to do this step and can use the already defined instance of the API.</p>
+</blockquote>
+<p>After this, we create a undo scope. Then, we should decide if we should highlight the new asset in the Asset Browser. (<code>should_select=true</code>)
+If that's needed, an instance of the current UI is required. Then, the magic can happen.</p>
+<p>The following code example will demonstrate how to add my_asset via code to the current project.</p>
+<pre><code class="language-c">// ... other includes
+#include &lt;foundation/the_truth.h&gt;
+#include &lt;foundation/undo.h&gt;
+
+#include &lt;plugins/editor_views/asset_browser.h&gt;
+
+#include &quot;my_asset.h&quot;
+//... other code
+
+static void add_my_asset_to_project(tm_the_truth_o *tt,struct tm_ui_o *ui,const char*asset_name, tm_tt_id_t target_dir){
+    const tm_tt_type_t my_asset_type_id= tm_the_truth_api-&gt;object_type_from_name_hash(tt, TM_TT_TYPE_HASH__MY_ASSET);
+    const tm_tt_id_t asset_id = tm_the_truth_api-&gt;create_object_of_type(tt, my_asset_type_id, TM_TT_NO_UNDO_SCOPE);
+tm_asset_browser_add_asset_api *add_asset = tm_global_api_registry-&gt;get(TM_ASSET_BROWSER_ADD_ASSET_API_NAME);
+const tm_tt_undo_scope_t undo_scope = tm_the_truth_api-&gt;create_undo_scope(tt, TM_LOCALIZE(&quot;Add My Asset to Project&quot;));
+bool should_select = true;
+add_asset-&gt;add(add_asset-&gt;inst, target_dir, asset_id, asset_name, undo_scope,should_select,ui);
+}
+</code></pre>
+<h2 id="full-example-of-basic-asset"><a class="header" href="#full-example-of-basic-asset">Full example of basic asset</a></h2>
+<p><code>my_asset.h</code></p>
+<pre><code class="language-c">#pragma once
+#include &lt;foundation/api_types.h&gt;
+//... more code
+#define TM_TT_TYPE__MY_ASSET &quot;tm_my_asset&quot;
+#define TM_TT_TYPE_HASH__MY_ASSET TM_STATIC_HASH(&quot;tm_my_asset&quot;, 0x1e12ba1f91b99960ULL)
+</code></pre>
+<p>(Do not forget to run hash.exe when you create a <code>TM_STATIC_HASH</code>)</p>
+<p><code>my_asset.c</code></p>
+<pre><code class="language-c">// -- api's
+static struct tm_the_truth_api *tm_the_truth_api;
+// -- inlcudes
+#include &lt;foundation/api_registry.h&gt;
+#include &lt;foundation/the_truth.h&gt;
+#include &lt;foundation/undo.h&gt;
+#include &lt;foundation/the_truth_assets.h&gt;
+#include &lt;foundation/localizer.h&gt;
+
+#include &lt;plugins/editor_views/asset_browser.h&gt;
+
+#include &quot;my_asset.h&quot;
+
+// -- create truth type
+static void create_truth_types(struct tm_the_truth_o *tt)
+{
+    // we have properties this is why the last arguments are &quot;0, 0&quot;
+    const tm_tt_type_t type = tm_the_truth_api-&gt;create_object_type(tt, TM_TT_TYPE__MY_ASSET, 0, 0);
+    tm_the_truth_api-&gt;set_aspect(tt, type, TM_TT_ASPECT__FILE_EXTENSION, &quot;my_asset&quot;);
+}
+
+// -- asset browser regsiter interface
+static tm_tt_id_t asset_browser_create(struct tm_asset_browser_create_asset_o *inst, tm_the_truth_o *tt, tm_tt_undo_scope_t undo_scope)
+{
+    const tm_tt_type_t type = tm_the_truth_api-&gt;object_type_from_name_hash(tt, TM_TT_TYPE_HASH__MY_ASSET);
+    return tm_the_truth_api-&gt;create_object_of_type(tt, type, undo_scope);
+}
+static tm_asset_browser_create_asset_i asset_browser_create_my_asset = {
+    .menu_name = TM_LOCALIZE_LATER(&quot;New My Asset&quot;),
+    .asset_name = TM_LOCALIZE_LATER(&quot;New My Asset&quot;),
+    .create = asset_browser_create,
+};
+
+// -- load plugin
+TM_DLL_EXPORT void tm_load_plugin(struct tm_api_registry_api *reg, bool load)
+{
+    tm_the_truth_api = reg-&gt;get(TM_THE_TRUTH_API_NAME);
+    tm_add_or_remove_implementation(reg, load, TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME, create_truth_types);
+    tm_add_or_remove_implementation(reg, load, TM_ASSET_BROWSER_CREATE_ASSET_INTERFACE_NAME, &amp;asset_browser_create_my_asset);
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../the_truth/custom_asset/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../the_truth/custom_asset/part2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../the_truth/custom_asset/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../the_truth/custom_asset/part2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
