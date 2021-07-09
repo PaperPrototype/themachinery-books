@@ -28,6 +28,8 @@ $ cd tutorials
 $ mdbook serve
 ```
 
+and than you open the markdown files with your editor of choice. For example: [typora](https://typora.io/). If you want to add new pages to the system just add them to the `SUMMARY.md` as soon as they are in there they will be used for the book.
+
 ## Building
 
 To build the book, type:
