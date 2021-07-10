@@ -117,7 +117,10 @@
                                                 <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                                                                        
+                                                                        <a href="https://github.com/OurMachinery/themachinery-books" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                                                
                     </div>
                 </div>
 
@@ -144,10 +147,22 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="create-a-custom-asset-part-3"><a class="header" href="#create-a-custom-asset-part-3">Create a custom asset part 3</a></h1>
-<p>This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this Guide. The goal for this walkthrough is to write a text file asset.</p>
+<p>This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this <a href="/the_machinery_book/extending_the_machinery/the_plugin_system.html">Guide</a>. The goal for this walkthrough is to write a text file asset.</p>
 <p>This part will cover the following topics:</p>
 <ul>
 <li>How to write an importer</li>
+</ul>
+<blockquote>
+<p>You can find the whole source code in its git repo: <a href="https://github.com/simon-ourmachinery/example-text-file-asset">example-text-file-asset</a></p>
+</blockquote>
+<p><strong>Table of Content</strong></p>
+<ul>
+<li><a href="#custom-importer-for-text-files">Custom importer for text files</a></li>
+<li><a href="#import-task-set-up">Import Task set up</a></li>
+<li><a href="#import-task-implementation">Import task implementation</a></li>
+<li><a href="#enabling-reimport">Enabling reimport</a></li>
+<li><a href="#refactor-the-custom-ui-import-functionality">Refactor the Custom UI import functionality</a></li>
+<li><a href="#the-end">The end</a></li>
 </ul>
 <h2 id="custom-importer-for-text-files"><a class="header" href="#custom-importer-for-text-files">Custom importer for text files</a></h2>
 <p>In this part, we are adding the ability to import a text file into the Engine. To implement an importer, we need the following APIs:</p>

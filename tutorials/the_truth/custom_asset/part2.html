@@ -117,7 +117,10 @@
                                                 <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                                                                        
+                                                                        <a href="https://github.com/OurMachinery/themachinery-books" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                                                
                     </div>
                 </div>
 
@@ -144,13 +147,28 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="create-a-custom-asset-part-2"><a class="header" href="#create-a-custom-asset-part-2">Create a custom asset part 2</a></h1>
-<p>This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this <a href="#">Guide</a>. The goal for this walkthrough is to write a text file asset.</p>
+<p>This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this <a href="/the_machinery_book/extending_the_machinery/the_plugin_system.html">Guide</a>. The goal for this walkthrough is to write a text file asset.</p>
 <p>This part will cover the following topics:</p>
 <ul>
 <li>How to store data in a buffer that is associated with the asset file</li>
 <li>How to add a custom UI to be associated with the asset.</li>
 </ul>
-<p>When you have finished this part in the <a href="#">next one</a>, we will show you how to write your importer.</p>
+<p>When you have finished this part in the <a href="/tutorials/the_truth/custom_asset/part3.html">next one</a>, we will show you how to write your importer.</p>
+<blockquote>
+<p>You can find the whole source code in its git repo: <a href="https://github.com/simon-ourmachinery/example-text-file-asset">example-text-file-asset</a></p>
+</blockquote>
+<p><strong>Table of Content</strong></p>
+<ul>
+<li><a href="#extending-the-asset-the-truth-type">Extending the asset The Truth Type</a></li>
+<li><a href="#text-file-asset">Text file asset</a></li>
+<li><a href="#load-a-text-file">Load a text file</a>
+<ul>
+<li><a href="#custom-ui">Custom UI</a></li>
+</ul>
+</li>
+<li><a href="#what-is-next">What is next?</a></li>
+<li><a href="#full-example-source-code">Full example source code</a></li>
+</ul>
 <h2 id="extending-the-asset-the-truth-type"><a class="header" href="#extending-the-asset-the-truth-type">Extending the asset The Truth Type</a></h2>
 <p>The asset type we created is nice but it cannot do much. The Machinery can save anything to file that it can store in the Truth. This thought brings us back to the part: <strong>“What kind of asset do we want to create?”.</strong> </p>
 <p>Let us go back to the basic definition of the type <code>my_asset</code>. We defined the type without any properties.</p>
@@ -220,8 +238,8 @@ static tm_asset_browser_create_asset_i asset_browser_create_my_asset = {
 <p>After creating a new asset, the asset looks as following in the editor:</p>
 <p><img src="https://paper-attachments.dropbox.com/s_892FB4725BEE1D4E7D7CCEA6A89558987964DFF4B0524E03B4E0F6FFCF6E0FED_1609926772154_image.png" alt="" /></p>
 <p>This asset file is still not quite how we want it because we have not loaded a text file yet. Therefore let us load a file next. At first, we will do it by <em>hand</em> via loading a file whenever we are changing the path, and then later on (in the next chapter) we are writing our importer. It will allow us to drag and drop files into the Engine as well or use the <em>Import Menu.</em></p>
-<p><strong>Custom UI</strong>
-To archive our first manual loading, we need to add a custom UI associated with our type. We can do this via the properties aspect <code>TM_TT_ASPECT__PROPERTIES</code>. It means we need to go back to the <code>create_truth_types</code> function and add a new Aspect and a new object associated with this Aspect.</p>
+<h3 id="custom-ui"><a class="header" href="#custom-ui">Custom UI</a></h3>
+<p>To archive our first manual loading, we need to add a custom UI associated with our type. We can do this via the properties aspect <code>TM_TT_ASPECT__PROPERTIES</code>. It means we need to go back to the <code>create_truth_types</code> function and add a new Aspect and a new object associated with this Aspect.</p>
 <p>The Aspect expects a <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_aspect_i"><code>tm_properties_aspect_i</code></a> object. When defining the object, we are focused only on is the custom_ui field. </p>
 <blockquote>
 <p>Note: This struct has many different fields which are not interesting to us now. (If you want more information on them, check out the <a href="https://ourmachinery.com//apidoc/plugins/editor_views/properties.h.html#structtm_properties_aspect_i">documentation</a>.</p>
