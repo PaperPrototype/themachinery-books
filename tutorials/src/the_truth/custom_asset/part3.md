@@ -1,10 +1,18 @@
 # Create a custom asset part 3
 
-This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this Guide. The goal for this walkthrough is to write a text file asset.
+This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this [Guide](/the_machinery_book/extending_the_machinery/the_plugin_system.html). The goal for this walkthrough is to write a text file asset.
 
 This part will cover the following topics:
 
 - How to write an importer
+
+>  You can find the whole source code in its git repo: [example-text-file-asset](https://github.com/simon-ourmachinery/example-text-file-asset)
+
+**Table of Content**
+
+* auto-gen TOC;
+{:toc}
+
 
 ## Custom importer for text files
 

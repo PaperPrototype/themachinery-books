@@ -1,8 +1,8 @@
 # Create a custom asset part 1
 
-This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this Guide. The goal for this walkthrough is to write a text file asset.
+This walkthrough shows you how to add a custom asset to the Engine. You should have basic knowledge about how to write a custom plugin. If not, you might want to check this [Guide](/the_machinery_book/extending_the_machinery/the_plugin_system.html). The goal for this walkthrough is to write a text file asset.
 
-This walkthrough will cover the following topics:
+In the parts 1 - 3 we will cover the following topics:
 
 - How to create your asset
 - How to associate data with your asset
@@ -19,6 +19,12 @@ This part will cover the following topics:
 
 The next part will explore how to store more complex data in an asset file and how to get this data back into the Engine.
 
+> You can find the whole source code in its git repo: [example-text-file-asset](https://github.com/simon-ourmachinery/example-text-file-asset)
+
+**Table of Content**
+
+* auto-gen TOC;
+{:toc}
 
 ## **First step:** What kind of asset do we want to create?
 
@@ -48,7 +54,7 @@ During this call we need to register a function to the `TM_THE_TRUTH_CREATE_TYPE
 This function is typically called `create_truth_types`, but its name can be arbitrary.
 
 
-> Note: An interface is an abstract structure that maps a struct (the interface) to a hash value/name. It allows for customization points. In The Machinery, the Engine uses this extensively.
+> **Note:** An interface is an abstract structure that maps a struct (the interface) to a hash value/name. It allows for customization points. In The Machinery, the Engine uses this extensively.
 
 Example `tm_load_plugin` function for `my_asset.c`
 
@@ -64,7 +70,8 @@ After we did this, let us implement the actual function. First, we need to creat
 
 At this point, we have a normal The Truth type. But we wanted to create an asset! 
 
-**Truth Type vs Asset**
+#### What is the difference between Truth Type and Asset?
+
 An asset is just a normal truth type. The structure of an asset in the truth is defined in the `foundation/the_truth_assets.h`. An asset itself is, therefore, nothing else than a wrapper around our actual asset. It provides a generic interface to provide some standard information.
 
 The structure of an asset type looks like this:
@@ -170,7 +177,7 @@ What happens is not existing! But we are getting there! Check out the [next part
 
 The next part will refactor the current code and show you how to make your code and asset more useful by implementing the action asset.
 
-[Part 2](#)
+[Part 2](/tutorials/the_truth/custom_asset/part3.html)
 
 
 
@@ -178,12 +185,17 @@ The next part will refactor the current code and show you how to make your code 
 
 Sometimes it is necessary to create an asset via code. The Asset Browser plugin provides a solution for this the `tm_asset_browser_add_asset_api`. With this API assets can be created and added to the current project.
 
-To add an asset to the asset browser and therefore create a few steps are needed. First, the correct type needs to be retrieved from the truth via the type hash (in this example, `TM_TT_TYPE_HASH__MY_ASSET`). After that, we should create an object of the correct type. When that is done, we can request the asset browser API if the API not globally accessible. 
+To add an asset to the asset browser a few steps are needed. 
+
+1. First, we need to pick the correct type. We need to request it from the truth via the type hash (in this example, `TM_TT_TYPE_HASH__MY_ASSET`). 
+2. Secondly, we should create an object of the correct type. 
+3. Then we can request the asset browser API if the API not globally accessible.
 
 > If we already requested the API, we do not need to do this step and can use the already defined instance of the API.
 
-After this, we create a undo scope. Then, we should decide if we should highlight the new asset in the Asset Browser. (`should_select=true`)
-If that's needed, an instance of the current UI is required. Then, the magic can happen.
+4. We need to create a undo scope. (We could also use `TM_TT_NO_UNDO_SCOPE`) but its not recommended!
+5. Then, we should decide if we should highlight the new asset in the Asset Browser. (`should_select=true`) If that's needed, an instance of the current UI is required. 
+6. Then, the magic can happen and we can call the function `add` of the `tm_asset_browser_add_asset_api` 
 
 The following code example will demonstrate how to add my_asset via code to the current project.
 
@@ -203,7 +215,9 @@ static void add_my_asset_to_project(tm_the_truth_o *tt,struct tm_ui_o *ui,const 
 tm_asset_browser_add_asset_api *add_asset = tm_global_api_registry->get(TM_ASSET_BROWSER_ADD_ASSET_API_NAME);
 const tm_tt_undo_scope_t undo_scope = tm_the_truth_api->create_undo_scope(tt, TM_LOCALIZE("Add My Asset to Project"));
 bool should_select = true;
-add_asset->add(add_asset->inst, target_dir, asset_id, asset_name, undo_scope,should_select,ui);
+// we do not have any asset label therefore we do not need to pass them thats why the last
+// 2 arguments are 0 and 0!
+add_asset->add(add_asset->inst, target_dir, asset_id, asset_name, undo_scope,should_select,ui,0,0);
 }
 ```
 
