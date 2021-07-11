@@ -133,6 +133,8 @@ The next step is to tell the Entity to use this position instead of the old one.
 
 > Note that we leave all the other things as they were. It means they remain as before the change.
 
+The if then block also gets atatched to the top input of the Set Transform node.
+
 If we simulate the Scene now, the box moves, but it won't fall into the void if we move it to beyond the plane. It was to be expected because the physics system has not been updated, and therefore the velocity has not changed.
 
 
